@@ -2,13 +2,23 @@ import React from "react";
 
 function About(params) {
   return (
-    <div>
-      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Corrupti
-      repudiandae ab deleniti, delectus porro consequuntur quia atque, voluptate
-      sequi culpa nihil hic dolores rerum reprehenderit ipsam. Est deserunt
-      officiis, commodi corporis officia error aspernatur numquam inventore,
-      recusandae facere qui dolore voluptatem harum quasi repellendus, hic
-      sapiente laudantium obcaecati! Nemo, quidem!
+    <div class="jumbotron">
+      <h1 class="display-4">Skin Care Chatbot</h1>
+      <p class="lead">
+        This is a sample ecommerce website for a college project with a purpose
+        of making a chatbot for an ecommerce website
+      </p>
+      {/* <hr class="my-4" />
+      <p>A link to the real website of Neutrogena is given below.</p>
+      <a
+        class="btn btn-primary btn-lg"
+        href="https://www.neutrogena.com/"
+        target="_blank"
+        role="button"
+        rel="noreferrer"
+      >
+        Neutrogena
+      </a> */}
     </div>
   );
 }

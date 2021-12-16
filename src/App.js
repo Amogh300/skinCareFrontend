@@ -5,18 +5,16 @@ import { useState } from "react";
 function App() {
   const [count, setCount] = useState(0);
   const [cartItem, setCartItem] = useState([]);
-  function countController(value) {
-    if (value === true) setCount(count + 1);
-    else setCount(count - 1);
+  function countController(value, product) {
+    if (value === 1) setCount(count + 1);
+    else if (value === 2) setCount(count - 1);
+    else if (value === 3) setCount(count - product["count"]);
   }
   function cartItemController(newProduct, value) {
-    if (value === true) {
+    if (value === 1) {
       const foundProduct = cartItem.filter((item) => {
-        console.log(item["_id"]);
-        console.log(newProduct["_id"]);
         return item["_id"] === newProduct["_id"];
       });
-      console.log(foundProduct.length);
       if (foundProduct.length === 0) {
         newProduct["count"] = 1;
         setCartItem((prevState) => {
@@ -30,18 +28,28 @@ function App() {
             break;
           }
         }
-        console.log(cartItem);
+
         setCartItem(cartItem);
       }
-    } else {
+    } else if (value === 2) {
       for (let i = 0; i < cartItem.length; i++) {
         const element = cartItem[i];
         if (element["_id"] === newProduct["_id"]) {
           cartItem[i]["count"] = cartItem[i]["count"] - 1;
-          if (cartItem[i]["count"] === 0) cartItem.splice(i, 1);
+          if (cartItem[i]["count"] === 0) {
+            cartItem.splice(i, 1);
+          }
+
           setCartItem(cartItem);
           break;
-        } else {
+        }
+      }
+    } else if (value === 3) {
+      for (let i = 0; i < cartItem.length; i++) {
+        const element = cartItem[i];
+        if (element["_id"] === newProduct["_id"]) {
+          cartItem.splice(i, 1);
+          setCartItem(cartItem);
           break;
         }
       }

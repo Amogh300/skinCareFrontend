@@ -14,37 +14,24 @@ function ProductInfo(props) {
     fetchData();
   }, []);
   function addProduct() {
-    console.log(product);
-    props.cartItemMonitor(product, true);
-    props.countMonitor(true);
+    props.cartItemMonitor(product, 1);
+    props.countMonitor(1);
   }
   return (
     <div>
       {Object.keys(product).length !== 0 && (
-        <div className="hero">
-          <div className="row">
-            <div className="col">
-              <div className="slider">
-                <div className="product"></div>
-                <div className="preview">
-                  <img
-                    src="https://ntg-catalog.imgix.net/products/6887295_nocolor_0.jpg?w=1200&h=1443&sfrm=jpg&fit=crop"
-                    id="imagebox"
-                    alt=""
-                  />
-                </div>
-              </div>
+        <div className="productInfo row">
+          <div className="col-lg-6">
+            <img src={product["imgeUrl"]} alt="product" />
+          </div>
+          <div className="col-lg-6  details">
+            <h2>{product["name"]}</h2>
+            <div>
+              <h3>₹{product["price"]}</h3>
             </div>
-            <div className="col">
-              <div className="content">
-                <h2>{product["name"]}</h2>
-
-                <button type="button" onClick={addProduct}>
-                  <p>₹{product["price"]}</p>
-                  Add to cart
-                </button>
-              </div>
-            </div>
+            <button type="button" className="basket" onClick={addProduct}>
+              Add to cart
+            </button>
           </div>
         </div>
       )}

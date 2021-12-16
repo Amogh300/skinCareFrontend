@@ -1,15 +1,16 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import Header from "./Header";
 import Home from "./Home";
 import About from "./About";
 import ContactUs from "./ContactUs";
-import Checkout from "./Checkout";
+import Checkoutp from "./Checkoutp";
 import ProductInfo from "./ProductInfo";
-import Footer from "./Footer";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function PageStructure(props) {
   const { count, cartItem, countController, cartItemController } = props;
+
   return (
     <div>
       <Router>
@@ -27,8 +28,10 @@ function PageStructure(props) {
           <Route
             path="/checkout"
             element={
-              <Checkout
+              <Checkoutp
+                count={count}
                 cartItem={cartItem}
+                countMonitor={countController}
                 cartItemMonitor={cartItemController}
               />
             }
@@ -46,7 +49,6 @@ function PageStructure(props) {
           />
         </Routes>
       </Router>
-      {/* <Footer /> */}
     </div>
   );
 }

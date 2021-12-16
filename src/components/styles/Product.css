@@ -196,7 +196,7 @@ img {
   display: inline-block;
 }
 .product-price:first-of-type {
-  text-decoration: line-through;
+  /* text-decoration: line-through; */
   color: var(--carribean-green);
 }
 .product-img img {

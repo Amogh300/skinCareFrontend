@@ -16,8 +16,8 @@ function Home(props) {
     fetchData();
   }, []);
   return (
-    <div className="products">
-      {/* <Carousel /> */}
+    <div>
+      <Carousel />
       <div className="container">
         <div className="product-items">
           {products.length !== 0 &&
@@ -27,7 +27,7 @@ function Home(props) {
                   id={product["_id"]}
                   title={product["name"]}
                   price={product["price"]}
-                  image="https://ntg-catalog.imgix.net/products/6887295_nocolor_0.jpg?w=1200&h=1443&sfrm=jpg&fit=crop"
+                  image={product["imgeUrl"]}
                   key={product["_id"]}
                   product={product}
                   countMonitor={countMonitor}

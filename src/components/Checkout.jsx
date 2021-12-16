@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "./styles/Checkout.css";
+// import "./styles/Checkout.css";
 
 function Checkout(props) {
   let sum = 0;
@@ -15,10 +15,6 @@ function Checkout(props) {
         "Content-Type": "application/json"
       },
       body: JSON.stringify({
-        produ: [
-          { id: 1, quantity: 3 },
-          { id: 2, quantity: 1 }
-        ],
         items
       })
     })

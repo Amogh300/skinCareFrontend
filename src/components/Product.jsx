@@ -1,20 +1,20 @@
 import React from "react";
-import "./styles/Product.css";
+// import "./styles/Product.css";
 import { Link } from "react-router-dom";
 
 function Product(props) {
   const { id, title, image, price, product } = props;
   function addProduct() {
-    props.cartItemMonitor(product, true);
-    props.countMonitor(true);
+    props.cartItemMonitor(product, 1);
+    props.countMonitor(1);
   }
   return (
-    <div className="product">
-      <div className="product-content">
-        <div className="product-img">
+    <div>
+      <div>
+        <div>
           <img src={image} alt="productimage" />
         </div>
-        <div className="product-btns">
+        <div>
           <button type="button" className="btn-cart" onClick={addProduct}>
             Add to cart
           </button>
@@ -25,7 +25,7 @@ function Product(props) {
         <Link to={`/product/${id}`} className="product-name">
           {title}
         </Link>
-        <p className="product-price">{price}</p>
+        <p className="product-price">Rs. {price}</p>
       </div>
     </div>
   );
